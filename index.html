@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adit adalah karbit</title>
+</head>
+<body>
+  <h1>Pengetesan Karbit</h1>
+  <p>Klik tombol di bawah untuk melihat gambar berdasarkan persentase sekarbit apa anda.</p>
+  <button onclick="showRandomImage()">Hitung sekarang!</button>
+  <div id="result" style="margin-top: 20px;">
+    <p id="percentage"></p>
+    <img id="randomImage" src="" alt="Hasil Gambar" style="max-width: 300px; display: none;">
+  </div>
+
+  <script>
+    function showRandomImage() {
+      // Generate random percentage between 0 and 100
+      const randomPercentage = Math.floor(Math.random() * 101);
+      const resultText = document.getElementById("percentage");
+      const imageElement = document.getElementById("randomImage");
+
+      // Update percentage text
+      resultText.textContent = `Persentase karbit: ${randomPercentage}%`;
+
+      // Determine image source based on percentage range
+      let imageSrc = "";
+      if (randomPercentage <= 20) {
+        imageSrc = "0.jpg"; // Ganti dengan path gambar A
+      } else if (randomPercentage <= 40) {
+        imageSrc = "21.jpg"; // Ganti dengan path gambar B
+      } else if (randomPercentage <= 60) {
+        imageSrc = "41.jpg"; // Ganti dengan path gambar C
+      } else if (randomPercentage <= 80) {
+        imageSrc = "61.jpg"; // Ganti dengan path gambar D
+      } else {
+        imageSrc = "81.jpg"; // Ganti dengan path gambar E
+      }
+
+      // Display the corresponding image
+      imageElement.src = imageSrc;
+      imageElement.style.display = "block";
+    }
+  </script>
+</body>
+</html>
